@@ -3,7 +3,7 @@
     "_id": 1,
     "name": "Helmet",
     "image": "https://i.ibb.co/dDtVGq1/helmet.jpg",
-    "description": "Motocross helmet constructed from lightweight, thermoplastic poly alloy shell. Industry leading nineteen vents.",
+    "description": "Motocross helmet constructed from lightweight, thermoplastic poly alloy shell. Industry leading nineteen vents.Motocross helmet constructed from lightweight, thermoplastic poly alloy shell. Industry leading nineteen vents.",
     "minOrderQuantity": 100,
     "availableQuantity": 1000,
     "price": 500

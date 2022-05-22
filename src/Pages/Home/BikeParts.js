@@ -14,13 +14,14 @@ const BikeParts = () => {
   }
 
   return (
-    <div className='container mx-auto mt-4'>
-      <h2 className='text-center font-bold text-2xl'>Bike Parts</h2>
+    <div className='container mx-auto mt-8'>
+      <h2 className='text-center font-bold text-3xl uppercase'>Bike Parts</h2>
       <TitleUnderline />
-
-      {bikeParts.map((bikePart) => (
-        <BikePart key={bikePart._id} bikePart={bikePart} />
-      ))}
+      <div className='mt-4 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3'>
+        {bikeParts.map((bikePart) => (
+          <BikePart key={bikePart._id} bikePart={bikePart} />
+        ))}
+      </div>
     </div>
   )
 }
