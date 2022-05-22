@@ -1,0 +1,56 @@
+[
+  {
+    "_id": 1,
+    "name": "Helmet",
+    "image": "https://i.ibb.co/dDtVGq1/helmet.jpg",
+    "description": "Motocross helmet constructed from lightweight, thermoplastic poly alloy shell. Industry leading nineteen vents.",
+    "minOrderQuantity": 100,
+    "availableQuantity": 1000,
+    "price": 500
+  },
+  {
+    "_id": 2,
+    "name": "Wheels",
+    "image": "https://i.ibb.co/z8yHpmn/wheels.jpg",
+    "description": "Bajaj Genuine Wheel Rim for Bajaj Pulsar 200NS (make year 2012-2016) with 200cc DTSi BS-3 Engine.",
+    "minOrderQuantity": 100,
+    "availableQuantity": 1000,
+    "price": 500
+  },
+  {
+    "_id": 3,
+    "name": "Chassis",
+    "image": "https://i.ibb.co/QDv132x/chassis.jpg",
+    "description": "This CHASSIS is suitable for : ROYAL ENFIELD CLASSIC 350,ROYAL ENFIELD CLASSIC 500. These CHASSIS are offered by ENFIELDGP brand.",
+    "minOrderQuantity": 100,
+    "availableQuantity": 1000,
+    "price": 500
+  },
+  {
+    "_id": 4,
+    "name": "Engine",
+    "image": "https://i.ibb.co/mG61DBy/engine.jpg",
+    "description": "This is the latest V8 engine for common motorbike. This has great suspenssion which keeps cool the engine.",
+    "minOrderQuantity": 100,
+    "availableQuantity": 1000,
+    "price": 500
+  },
+  {
+    "_id": 5,
+    "name": "Brakes",
+    "image": "https://i.ibb.co/kcxNYTr/brakes.jpg",
+    "description": "Galfer Wave Brake Rotors are laser cut from a proprietary high-carbon 420 Stainless Steel that has been heat treated.",
+    "minOrderQuantity": 100,
+    "availableQuantity": 1000,
+    "price": 500
+  },
+  {
+    "_id": 6,
+    "name": "Transmission",
+    "image": "https://i.ibb.co/RcbCKm7/transmission.jpg",
+    "description": "This transmission can easily turn up your bike speed upto 300 km/hr with keeping the engine cool. Is has titanium cover",
+    "minOrderQuantity": 100,
+    "availableQuantity": 1000,
+    "price": 500
+  }
+]
