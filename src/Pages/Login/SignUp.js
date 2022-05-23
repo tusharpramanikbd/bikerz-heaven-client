@@ -1,21 +1,35 @@
 import React from 'react'
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading'
 import TitleUnderline from '../Shared/TitleUnderline'
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth)
+  const [createUserWithEmailAndPassword, user, loading, userError] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth)
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm()
-  let gErrorElement
+  let gErrorElement, errorElement
+  const navigate = useNavigate()
 
-  if (gLoading) {
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password)
+    await updateProfile({ displayName: data.name })
+  }
+
+  if (gLoading || loading) {
     return <Loading />
   }
 
@@ -23,8 +37,14 @@ const SignUp = () => {
     gErrorElement = <p className='text-red-500 mt-2'>Error: {gError.message}</p>
   }
 
-  if (gUser) {
-    console.log(gUser)
+  if (userError) {
+    errorElement = (
+      <p className='text-red-500 mt-2'>Error: {userError.message}</p>
+    )
+  }
+
+  if (gUser || user) {
+    navigate('/login')
   }
 
   return (
@@ -32,7 +52,7 @@ const SignUp = () => {
       <div className='container mx-auto w-full md:w-2/3 lg:w-1/3 p-8 rounded-lg drop-shadow-lg bg-white'>
         <h2 className='text-center text-2xl font-bold'>SignUp</h2>
         <TitleUnderline />
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className='form-control w-full'>
             <label className='label'>
               <span className='label-text'>Name</span>
@@ -122,6 +142,7 @@ const SignUp = () => {
               )}
             </label>
           </div>
+          {errorElement}
           <input
             className='btn w-full text-white'
             type='submit'
