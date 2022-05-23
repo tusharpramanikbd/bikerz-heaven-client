@@ -1,7 +1,18 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../../firebase.init'
+import { signOut } from 'firebase/auth'
 
 const Navbar = () => {
+  const [user] = useAuthState(auth)
+  const navigate = useNavigate()
+  const handleSignout = () => {
+    signOut(auth)
+    localStorage.removeItem('accessToken')
+    navigate('/')
+  }
+
   const menuItems = (
     <>
       <li>
@@ -12,14 +23,16 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to='/purchase'
-          className={({ isActive }) => (isActive ? 'text-primary' : '')}
-        >
-          Purchase
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink
+            to='/purchase'
+            className={({ isActive }) => (isActive ? 'text-primary' : '')}
+          >
+            Purchase
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to='/blogs'
@@ -28,14 +41,23 @@ const Navbar = () => {
           Blogs
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to='/login'
-          className={({ isActive }) => (isActive ? 'text-primary' : '')}
-        >
-          Login
-        </NavLink>
-      </li>
+
+      {user ? (
+        <li>
+          <button onClick={handleSignout} className='btn'>
+            Logout
+          </button>
+        </li>
+      ) : (
+        <li>
+          <NavLink
+            to='/login'
+            className={({ isActive }) => (isActive ? 'text-primary' : '')}
+          >
+            Login
+          </NavLink>
+        </li>
+      )}
     </>
   )
 
