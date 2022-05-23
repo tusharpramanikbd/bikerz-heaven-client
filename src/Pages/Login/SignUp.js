@@ -1,14 +1,31 @@
 import React from 'react'
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import auth from '../../firebase.init'
+import Loading from '../Shared/Loading'
 import TitleUnderline from '../Shared/TitleUnderline'
 
 const SignUp = () => {
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth)
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm()
+  let gErrorElement
+
+  if (gLoading) {
+    return <Loading />
+  }
+
+  if (gError) {
+    gErrorElement = <p className='text-red-500 mt-2'>Error: {gError.message}</p>
+  }
+
+  if (gUser) {
+    console.log(gUser)
+  }
 
   return (
     <div className='bg-gray-100 p-4 min-h-[calc(100vh-64px)] flex justify-center items-center'>
@@ -120,7 +137,13 @@ const SignUp = () => {
           </small>
         </p>
         <div className='divider'>OR</div>
-        <button className='btn btn-outline w-full'>Continue with google</button>
+        <button
+          onClick={() => signInWithGoogle()}
+          className='btn btn-outline w-full'
+        >
+          Continue with google
+        </button>
+        {gErrorElement}
       </div>
     </div>
   )
