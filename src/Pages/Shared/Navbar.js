@@ -14,6 +14,14 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to='/purchase'
+          className={({ isActive }) => (isActive ? 'text-primary' : '')}
+        >
+          Purchase
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to='/blogs'
           className={({ isActive }) => (isActive ? 'text-primary' : '')}
         >
