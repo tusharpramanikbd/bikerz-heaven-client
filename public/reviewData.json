@@ -1,0 +1,38 @@
+[
+  {
+    "_id": 1,
+    "name": "Tushar Pramanik",
+    "rating": 3,
+    "reviewText": "Motocross helmet constructed from lightweight, thermoplastic poly alloy shell. Industry leading nineteen vents.Motocross helmet constructed from lightweight, thermoplastic poly alloy shell. Industry leading nineteen vents."
+  },
+  {
+    "_id": 2,
+    "name": "Mampy Pramanik",
+    "rating": 4,
+    "reviewText": "Bajaj Genuine Wheel Rim for Bajaj Pulsar 200NS (make year 2012-2016) with 200cc DTSi BS-3 Engine."
+  },
+  {
+    "_id": 3,
+    "name": "Shuvro Chowdhury",
+    "rating": 2,
+    "reviewText": "This CHASSIS is suitable for : ROYAL ENFIELD CLASSIC 350,ROYAL ENFIELD CLASSIC 500. These CHASSIS are offered by ENFIELDGP brand."
+  },
+  {
+    "_id": 4,
+    "name": "Taufiqur Rahman",
+    "rating": 3,
+    "reviewText": "This is the latest V8 engine for common motorbike. This has great suspenssion which keeps cool the engine."
+  },
+  {
+    "_id": 5,
+    "name": "Nipu Saha",
+    "rating": 2,
+    "reviewText": "Galfer Wave Brake Rotors are laser cut from a proprietary high-carbon 420 Stainless Steel that has been heat treated."
+  },
+  {
+    "_id": 6,
+    "name": "Pritam Saha",
+    "rating": 3,
+    "reviewText": "This transmission can easily turn up your bike speed upto 300 km/hr with keeping the engine cool. Is has titanium cover"
+  }
+]
