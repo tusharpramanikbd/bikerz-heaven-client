@@ -1,50 +1,45 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import {
-  useSignInWithEmailAndPassword,
-  useSignInWithGoogle,
-} from 'react-firebase-hooks/auth'
-import auth from '../../firebase.init'
-import Loading from '../Shared/Loading'
 import TitleUnderline from '../Shared/TitleUnderline'
 
-const Login = () => {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth)
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth)
-  let gErrorElement, errorElement
+const SignUp = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm()
 
-  const onSubmit = (data) => {
-    console.log(data)
-  }
-
-  if (loading || gLoading) {
-    return <Loading />
-  }
-
-  if (gError) {
-    gErrorElement = <p className='text-red-500 mt-2'>Error: {gError.message}</p>
-  }
-  if (error) {
-    errorElement = <p className='text-red-500 mt-2'>Error: {error.message}</p>
-  }
-
-  if (gUser) {
-    console.log(gUser)
-  }
-
   return (
     <div className='bg-gray-100 p-4 min-h-[calc(100vh-64px)] flex justify-center items-center'>
       <div className='container mx-auto w-full md:w-2/3 lg:w-1/3 p-8 rounded-lg drop-shadow-lg bg-white'>
-        <h2 className='text-center text-2xl font-bold'>Login</h2>
+        <h2 className='text-center text-2xl font-bold'>SignUp</h2>
         <TitleUnderline />
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
+          <div className='form-control w-full'>
+            <label className='label'>
+              <span className='label-text'>Name</span>
+            </label>
+            <input
+              type='text'
+              placeholder='Your name'
+              className='input input-bordered w-full'
+              {...register('name', {
+                required: {
+                  value: true,
+                  message: 'name is required',
+                },
+              })}
+            />
+            <label className='label'>
+              {errors.name?.type === 'required' && (
+                <span className='label-text-alt text-red-500'>
+                  {errors.name.message}
+                </span>
+              )}
+            </label>
+          </div>
+
           <div className='form-control w-full'>
             <label className='label'>
               <span className='label-text'>Email</span>
@@ -110,32 +105,25 @@ const Login = () => {
               )}
             </label>
           </div>
-          {errorElement}
           <input
             className='btn w-full text-white'
             type='submit'
-            value='Login'
+            value='SignUp'
           />
         </form>
         <p className='text-center'>
           <small>
-            New to Bikerz Heaven?{' '}
-            <Link to='/signup' className='text-primary'>
-              Create New Account
+            Already have an account?{' '}
+            <Link to='/login' className='text-primary'>
+              Please login
             </Link>
           </small>
         </p>
         <div className='divider'>OR</div>
-        <button
-          onClick={() => signInWithGoogle()}
-          className='btn btn-outline w-full'
-        >
-          Continue with google
-        </button>
-        {gErrorElement}
+        <button className='btn btn-outline w-full'>Continue with google</button>
       </div>
     </div>
   )
 }
 
-export default Login
+export default SignUp
