@@ -39,18 +39,18 @@ const Login = () => {
   }
 
   return (
-    <div className='bg-gray-100 pb-4 min-h-[calc(100vh-64px)] flex justify-center items-center'>
-      <div className='container mx-auto w-1/2 p-4 rounded-lg drop-shadow-lg bg-white'>
+    <div className='bg-gray-100 min-h-[calc(100vh-64px)] flex justify-center items-center'>
+      <div className='container mx-auto w-full md:w-2/3 lg:w-1/3 p-8 rounded-lg drop-shadow-lg bg-white'>
         <h2 className='text-center text-2xl font-bold'>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='form-control w-full max-w-xs'>
+          <div className='form-control w-full'>
             <label className='label'>
               <span className='label-text'>Email</span>
             </label>
             <input
               type='email'
               placeholder='Your email'
-              className='input input-bordered w-full max-w-xs'
+              className='input input-bordered w-full'
               {...register('email', {
                 required: {
                   value: true,
@@ -76,14 +76,14 @@ const Login = () => {
             </label>
           </div>
 
-          <div className='form-control w-full max-w-xs'>
+          <div className='form-control w-full'>
             <label className='label'>
               <span className='label-text'>Password</span>
             </label>
             <input
               type='password'
               placeholder='Password'
-              className='input input-bordered w-full max-w-xs'
+              className='input input-bordered w-full'
               {...register('password', {
                 required: {
                   value: true,
@@ -110,7 +110,7 @@ const Login = () => {
           </div>
           {errorElement}
           <input
-            className='btn w-full max-w-xs text-white'
+            className='btn w-full text-white'
             type='submit'
             value='Login'
           />
@@ -124,7 +124,10 @@ const Login = () => {
           </small>
         </p>
         <div className='divider'>OR</div>
-        <button onClick={() => signInWithGoogle()} className='btn btn-outline'>
+        <button
+          onClick={() => signInWithGoogle()}
+          className='btn btn-outline w-full'
+        >
           Continue with google
         </button>
         {gErrorElement}
