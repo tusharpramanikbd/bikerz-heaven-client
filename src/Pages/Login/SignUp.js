@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -29,6 +29,12 @@ const SignUp = () => {
     await updateProfile({ displayName: data.name })
   }
 
+  useEffect(() => {
+    if (gUser || user) {
+      navigate('/login')
+    }
+  }, [gUser, user, navigate])
+
   if (gLoading || loading) {
     return <Loading />
   }
@@ -41,10 +47,6 @@ const SignUp = () => {
     errorElement = (
       <p className='text-red-500 mt-2'>Error: {userError.message}</p>
     )
-  }
-
-  if (gUser || user) {
-    navigate('/login')
   }
 
   return (

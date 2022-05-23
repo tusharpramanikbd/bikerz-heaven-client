@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -20,9 +20,20 @@ const Login = () => {
     handleSubmit,
   } = useForm()
 
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const from = location.state?.from?.pathname || '/'
+
   const onSubmit = (data) => {
-    console.log(data)
+    signInWithEmailAndPassword(data.email, data.password)
   }
+
+  useEffect(() => {
+    if (gUser || user) {
+      navigate(from, { replace: true })
+    }
+  }, [gUser, user, navigate, from])
 
   if (loading || gLoading) {
     return <Loading />
@@ -33,10 +44,6 @@ const Login = () => {
   }
   if (error) {
     errorElement = <p className='text-red-500 mt-2'>Error: {error.message}</p>
-  }
-
-  if (gUser) {
-    console.log(gUser)
   }
 
   return (
