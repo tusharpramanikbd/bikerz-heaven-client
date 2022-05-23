@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const BikePart = ({ bikePart }) => {
   const {
+    _id,
     name,
     image,
     minOrderQuantity,
@@ -9,6 +11,13 @@ const BikePart = ({ bikePart }) => {
     price,
     description,
   } = bikePart
+
+  const navigate = useNavigate()
+
+  const handleOrderBtnClick = (id) => {
+    navigate(`/purchase/${id}`)
+  }
+
   return (
     <div className='w-full p-4 rounded-lg drop-shadow-lg hover:drop-shadow-xl bg-white mb-4 md:mb-0 flex flex-col gap-y-4'>
       <div>
@@ -33,7 +42,12 @@ const BikePart = ({ bikePart }) => {
       </div>
 
       <div className='text-center mt-auto'>
-        <button className='btn btn-primary w-full'>Order</button>
+        <button
+          onClick={() => handleOrderBtnClick(_id)}
+          className='btn btn-primary w-full'
+        >
+          Order
+        </button>
       </div>
     </div>
   )

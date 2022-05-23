@@ -8,7 +8,7 @@ import BikePart from './BikePart'
 const BikeParts = () => {
   const { data: bikeParts, isLoading } = useQuery(
     'bikeParts',
-    async () => await axios.get('bikePartsData.json')
+    async () => await axios.get('http://localhost:5000/bikeParts')
   )
 
   if (isLoading) {
