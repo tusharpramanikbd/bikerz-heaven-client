@@ -8,6 +8,7 @@ import {
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading'
 import TitleUnderline from '../Shared/TitleUnderline'
+import useToken from '../../hooks/useToken'
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth)
@@ -25,15 +26,17 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || '/'
 
+  const [token] = useToken(user || gUser)
+
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password)
   }
 
   useEffect(() => {
-    if (gUser || user) {
+    if (token) {
       navigate(from, { replace: true })
     }
-  }, [gUser, user, navigate, from])
+  }, [token, navigate, from])
 
   if (loading || gLoading) {
     return <Loading />

@@ -7,6 +7,7 @@ import {
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
+import useToken from '../../hooks/useToken'
 import Loading from '../Shared/Loading'
 import TitleUnderline from '../Shared/TitleUnderline'
 
@@ -29,11 +30,13 @@ const SignUp = () => {
     await updateProfile({ displayName: data.name })
   }
 
+  const [token] = useToken(user || gUser)
+
   useEffect(() => {
-    if (gUser || user) {
-      navigate('/login')
+    if (token) {
+      navigate('/')
     }
-  }, [gUser, user, navigate])
+  }, [token, navigate])
 
   if (gLoading || loading) {
     return <Loading />

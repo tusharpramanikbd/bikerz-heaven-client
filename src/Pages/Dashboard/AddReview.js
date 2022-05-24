@@ -34,7 +34,7 @@ const AddReview = () => {
   }
 
   return (
-    <div className='mt-4 h-[calc(100vh-110px)] flex justify-center items-center'>
+    <div className='mt-4 min-h-[calc(100vh-110px)] flex justify-center items-center'>
       <div className='bg-white rounded-lg shadow-md p-4 md:p-8 md:w-3/4 lg:w-3/5 mx-auto'>
         <h2 className='text-center font-bold text-3xl uppercase'>
           Add your review

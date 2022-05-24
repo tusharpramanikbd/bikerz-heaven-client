@@ -45,7 +45,7 @@ const Navbar = () => {
       {user ? (
         <li>
           <button onClick={handleSignout} className='btn'>
-            Logout<span>({user.displayName.split(' ')[0]})</span>
+            Logout<span className='text-xs'>({user.displayName})</span>
           </button>
         </li>
       ) : (
