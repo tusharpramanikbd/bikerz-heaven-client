@@ -223,7 +223,7 @@ const Purchase = () => {
           </div>
 
           <input
-            className='btn w-full text-white'
+            className='btn btn-primary w-full'
             type='submit'
             value='Purchase'
             disabled={isDisabled}
