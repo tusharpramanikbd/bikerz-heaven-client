@@ -8,7 +8,7 @@ import Review from './Review'
 const Reviews = () => {
   const { data: reviews, isLoading } = useQuery(
     'reviews',
-    async () => await axios.get('reviewData.json')
+    async () => await axios.get('http://localhost:5000/reviews')
   )
 
   if (isLoading) {
