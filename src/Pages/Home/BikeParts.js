@@ -8,7 +8,8 @@ import BikePart from './BikePart'
 const BikeParts = () => {
   const { data: bikeParts, isLoading } = useQuery(
     'bikeParts',
-    async () => await axios.get('http://localhost:5000/bikeParts')
+    async () =>
+      await axios.get('https://agile-citadel-57926.herokuapp.com/bikeParts')
   )
 
   if (isLoading) {

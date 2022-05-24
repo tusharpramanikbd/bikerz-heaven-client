@@ -30,7 +30,10 @@ const Purchase = () => {
     refetch,
   } = useQuery(
     ['bikePart', id],
-    async () => await axios.get(`http://localhost:5000/bikeParts/${id}`),
+    async () =>
+      await axios.get(
+        `https://agile-citadel-57926.herokuapp.com/bikeParts/${id}`
+      ),
     {
       onSuccess: (data) => {
         setQuantity(data.data.minOrderQuantity)
@@ -76,7 +79,7 @@ const Purchase = () => {
     const orderPrice = parseInt(data.orderQuantity) * price
     data.orderPrice = orderPrice
     axios
-      .post('http://localhost:5000/orders', {
+      .post('https://agile-citadel-57926.herokuapp.com/orders', {
         data,
       })
       .then((res) => {
