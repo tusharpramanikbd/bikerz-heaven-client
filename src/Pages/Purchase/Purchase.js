@@ -24,7 +24,11 @@ const Purchase = () => {
     reset,
   } = useForm()
 
-  const { data: bikePart, isLoading } = useQuery(
+  const {
+    data: bikePart,
+    isLoading,
+    refetch,
+  } = useQuery(
     ['bikePart', id],
     async () => await axios.get(`http://localhost:5000/bikeParts/${id}`),
     {
@@ -69,13 +73,18 @@ const Purchase = () => {
     const orderDate = format(new Date(), 'PP')
     data.orderDate = orderDate
     data.productId = id
+    const orderPrice = parseInt(data.orderQuantity) * price
+    data.orderPrice = orderPrice
     axios
       .post('http://localhost:5000/orders', {
         data,
       })
       .then((res) => {
         reset()
-        toast.success('Your order is recieved')
+        toast.success(
+          `Your order is recieved. Please pay $${orderPrice} as soon as possible.`
+        )
+        refetch()
       })
       .catch((err) => console.log(err))
   }
@@ -110,7 +119,10 @@ const Purchase = () => {
 
         <h2 className='text-center text-2xl font-bold mt-4'>Place Order</h2>
         <TitleUnderline />
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className='lg:w-3/5 border p-4 rounded-lg mx-auto mt-4 shadow-md'
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className='form-control w-full'>
             <label className='label'>
               <span className='label-text'>Name</span>
