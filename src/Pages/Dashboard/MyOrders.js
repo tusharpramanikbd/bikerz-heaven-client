@@ -1,18 +1,28 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading'
+import OrderDeleteModal from './OrderDeleteModal'
 
 const MyOrders = () => {
   const [user] = useAuthState(auth)
+  const [deletingOrder, setDeletingOrder] = useState(null)
 
-  const { data: myOrders, isLoading } = useQuery(
+  const {
+    data: myOrders,
+    isLoading,
+    refetch,
+  } = useQuery(
     'myOrders',
     async () =>
       await axios.get(`http://localhost:5000/orders?email=${user.email}`)
   )
+
+  const showOrderDeleteModal = (order) => {
+    setDeletingOrder(order)
+  }
 
   if (isLoading) {
     return <Loading />
@@ -47,15 +57,26 @@ const MyOrders = () => {
                   <button className='btn btn-xs btn-success text-white'>
                     Pay
                   </button>{' '}
-                  <button className='btn btn-xs btn-success text-white'>
-                    Cancel
-                  </button>
+                  <label
+                    onClick={() => showOrderDeleteModal(order)}
+                    htmlFor='order-delete-confirm-modal'
+                    className='btn btn-xs btn-error text-white'
+                  >
+                    Delete
+                  </label>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {deletingOrder && (
+        <OrderDeleteModal
+          deletingOrder={deletingOrder}
+          refetch={refetch}
+          setDeletingOrder={setDeletingOrder}
+        />
+      )}
     </div>
   )
 }
