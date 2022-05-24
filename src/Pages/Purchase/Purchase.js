@@ -78,6 +78,7 @@ const Purchase = () => {
     data.productId = id
     const orderPrice = parseInt(data.orderQuantity) * price
     data.orderPrice = orderPrice
+    data.productName = name
     axios
       .post('https://agile-citadel-57926.herokuapp.com/orders', {
         data,
