@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
+import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading'
 import OrderDeleteModal from './OrderDeleteModal'
@@ -17,7 +18,7 @@ const MyOrders = () => {
   } = useQuery(
     'myOrders',
     async () =>
-      await axios.get(`http://localhost:5000/orders?email=${user.email}`)
+      await axios.get(`http://localhost:5000/ordersbyemail?email=${user.email}`)
   )
 
   const showOrderDeleteModal = (order) => {
@@ -41,6 +42,7 @@ const MyOrders = () => {
               <th>Quantity</th>
               <th>Price</th>
               <th>Payment</th>
+              <th>Transaction Id</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -53,14 +55,26 @@ const MyOrders = () => {
                 <td>{order.orderQuantity}</td>
                 <td>{order.orderPrice}</td>
                 <td>{order.payment}</td>
+                <td>{order.transactionId}</td>
                 <td>
-                  <button className='btn btn-xs btn-success text-white'>
-                    Pay
-                  </button>{' '}
+                  <Link
+                    className={
+                      order.payment !== 'unpaid' ? 'pointer-events-none' : null
+                    }
+                    to={`/dashboard/payment/${order._id}`}
+                  >
+                    <button
+                      disabled={order.payment !== 'unpaid' ? true : false}
+                      className='btn btn-xs btn-success text-white'
+                    >
+                      Pay
+                    </button>
+                  </Link>{' '}
                   <label
                     onClick={() => showOrderDeleteModal(order)}
                     htmlFor='order-delete-confirm-modal'
                     className='btn btn-xs btn-error text-white'
+                    disabled={order.payment !== 'unpaid' ? true : false}
                   >
                     Delete
                   </label>

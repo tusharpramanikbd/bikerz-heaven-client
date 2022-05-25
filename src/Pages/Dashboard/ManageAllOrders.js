@@ -76,7 +76,7 @@ const ManageAllOrders = () => {
                     Shipped
                   </button>{' '}
                   <label
-                    disabled={order.payment === 'shipped' ? true : false}
+                    disabled={order.payment !== 'unpaid' ? true : false}
                     onClick={() => showOrderDeleteModal(order)}
                     htmlFor='order-delete-confirm-modal'
                     className='btn btn-xs btn-error text-white'

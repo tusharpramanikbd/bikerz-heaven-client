@@ -19,6 +19,7 @@ import ManageProducts from './Pages/Dashboard/ManageProducts'
 import MakeAdmin from './Pages/Dashboard/MakeAdmin'
 import RequireAdmin from './Pages/Login/RequireAdmin'
 import RequireUser from './Pages/Login/RequireUser'
+import Payment from './Pages/Dashboard/Payment'
 
 function App() {
   return (
@@ -92,7 +93,16 @@ function App() {
               </RequireAdmin>
             }
           />
+          <Route
+            path='payment/:id'
+            element={
+              <RequireUser>
+                <Payment />
+              </RequireUser>
+            }
+          />
         </Route>
+
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
