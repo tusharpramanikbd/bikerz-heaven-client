@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth'
 import React, { useEffect } from 'react'
 import {
   useCreateUserWithEmailAndPassword,
@@ -34,7 +35,8 @@ const SignUp = () => {
 
   useEffect(() => {
     if (token) {
-      navigate('/')
+      signOut(auth)
+      navigate('/login')
     }
   }, [token, navigate])
 

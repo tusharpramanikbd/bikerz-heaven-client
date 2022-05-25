@@ -10,7 +10,7 @@ const OrderDeleteModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
       .delete(`http://localhost:5000/orders/${id}`)
       .then((res) => {
         if (res.data.deletedCount > 0) {
-          toast.success('Your order is deleted')
+          toast.success('Order is deleted')
           setDeletingOrder(null)
           refetch()
         }
@@ -27,7 +27,7 @@ const OrderDeleteModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
       <div className='modal modal-bottom sm:modal-middle'>
         <div className='modal-box'>
           <h3 className='font-bold text-lg text-red-500'>
-            Are you sure want to delete your order: {productName}?
+            Are you sure want to delete order: {productName}?
           </h3>
           <div className='modal-action'>
             <label

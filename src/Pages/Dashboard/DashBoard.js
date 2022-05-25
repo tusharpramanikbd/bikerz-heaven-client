@@ -24,6 +24,9 @@ const DashBoard = () => {
           <li>
             <Link to='/dashboard/myProfile'>My Profile</Link>
           </li>
+          <li>
+            <Link to='/dashboard/manageAllOrders'>Manage All Orders</Link>
+          </li>
         </ul>
       </div>
     </div>
