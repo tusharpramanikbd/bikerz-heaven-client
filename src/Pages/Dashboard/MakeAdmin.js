@@ -1,10 +1,13 @@
 import axios from 'axios'
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
+import auth from '../../firebase.init'
 import Loading from '../Shared/Loading'
 
 const MakeAdmin = () => {
+  const [user] = useAuthState(auth)
   const {
     data: userList,
     isLoading,
@@ -41,21 +44,27 @@ const MakeAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {userList.data.map((user, index) => (
-              <tr key={user._id}>
-                <th>{index + 1}</th>
-                <td>{user.email}</td>
-                <td>
-                  <button
-                    onClick={() => makeAdminHandler(user.email)}
-                    className='btn btn-xs btn-success text-white'
-                    disabled={user.role ? true : false}
-                  >
-                    Make Admin
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {userList.data.map((usr, index) => {
+              if (usr.email !== user.email) {
+                return (
+                  <tr key={usr._id}>
+                    <th>{index + 1}</th>
+                    <td>{usr.email}</td>
+                    <td>
+                      <button
+                        onClick={() => makeAdminHandler(usr.email)}
+                        className='btn btn-xs btn-success text-white'
+                        disabled={usr.role ? true : false}
+                      >
+                        Make Admin
+                      </button>
+                    </td>
+                  </tr>
+                )
+              } else {
+                return null
+              }
+            })}
           </tbody>
         </table>
       </div>

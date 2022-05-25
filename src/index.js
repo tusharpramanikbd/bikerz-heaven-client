@@ -5,6 +5,12 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import axios from 'axios'
+
+axios.interceptors.request.use((req) => {
+  req.headers.authorization = `Bearer ${localStorage.getItem('accessToken')}`
+  return req
+})
 
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'))
