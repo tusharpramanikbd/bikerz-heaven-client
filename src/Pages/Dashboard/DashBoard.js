@@ -30,6 +30,9 @@ const DashBoard = () => {
           <li>
             <Link to='/dashboard/addAProduct'>Add A Product</Link>
           </li>
+          <li>
+            <Link to='/dashboard/manageProducts'>Manage Products</Link>
+          </li>
         </ul>
       </div>
     </div>

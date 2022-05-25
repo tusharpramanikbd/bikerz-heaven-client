@@ -76,7 +76,7 @@ const Purchase = () => {
     const orderDate = format(new Date(), 'PP')
     data.orderDate = orderDate
     data.productId = id
-    const orderPrice = parseInt(data.orderQuantity) * price
+    const orderPrice = parseInt(data.orderQuantity) * parseInt(price)
     data.orderPrice = orderPrice
     data.productName = name
     axios

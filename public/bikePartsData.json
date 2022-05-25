@@ -52,5 +52,14 @@
     "minOrderQuantity": 100,
     "availableQuantity": 1000,
     "price": 500
+  },
+  {
+    "_id": 7,
+    "name": "Hand Gloves",
+    "image": "https://i.ibb.co/WVXG3wd/handgloves.jpg",
+    "description": "This is fine leather made hand gloves specially created for motor biker. If you have sweat problem, this is your best choice.",
+    "minOrderQuantity": 100,
+    "availableQuantity": 200,
+    "price": 50
   }
 ]
