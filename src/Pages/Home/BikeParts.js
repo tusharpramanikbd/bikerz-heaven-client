@@ -17,7 +17,7 @@ const BikeParts = () => {
   }
 
   return (
-    <div className='container mx-auto mt-8'>
+    <div id='bikeParts' className='container mx-auto mt-8'>
       <h2 className='text-center font-bold text-3xl uppercase'>Bike Parts</h2>
       <TitleUnderline />
       <div className='mt-4 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3'>

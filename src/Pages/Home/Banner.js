@@ -14,7 +14,9 @@ const Banner = () => {
                 <h2 className='text-white text-sm md:text-2xl font-bold capitalize mt-4'>
                   your one stop solution to find all the motor bike parts
                 </h2>
-                <button className='btn btn-primary mt-8'>Get Started</button>
+                <a href='#bikeParts' className='btn btn-primary mt-8'>
+                  Get Started
+                </a>
               </div>
             </div>
           </div>
@@ -39,7 +41,9 @@ const Banner = () => {
                 <h2 className='text-white text-sm md:text-2xl font-bold capitalize mt-4'>
                   your one stop solution to find all the motor bike parts
                 </h2>
-                <button className='btn btn-primary mt-8'>Get Started</button>
+                <a href='#bikeParts' className='btn btn-primary mt-8'>
+                  Get Started
+                </a>
               </div>
             </div>
           </div>
@@ -64,7 +68,9 @@ const Banner = () => {
                 <h2 className='text-white text-sm md:text-2xl font-bold capitalize mt-4'>
                   your one stop solution to find all the motor bike parts
                 </h2>
-                <button className='btn btn-primary mt-8'>Get Started</button>
+                <a href='#bikeParts' className='btn btn-primary mt-8'>
+                  Get Started
+                </a>
               </div>
             </div>
           </div>
