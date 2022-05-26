@@ -22,6 +22,7 @@ import RequireUser from './Pages/Login/RequireUser'
 import Payment from './Pages/Dashboard/Payment'
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio'
 import NotFound from './Pages/NotFound/NotFound'
+import Footer from './Pages/Shared/Footer'
 
 function App() {
   return (
@@ -112,6 +113,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
       <ToastContainer />
+      <Footer />
     </div>
   )
 }
