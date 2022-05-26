@@ -21,6 +21,7 @@ import RequireAdmin from './Pages/Login/RequireAdmin'
 import RequireUser from './Pages/Login/RequireUser'
 import Payment from './Pages/Dashboard/Payment'
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio'
+import NotFound from './Pages/NotFound/NotFound'
 
 function App() {
   return (
@@ -108,6 +109,7 @@ function App() {
         <Route path='/myportfolio' element={<MyPortfolio />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <ToastContainer />
     </div>
