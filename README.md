@@ -33,3 +33,4 @@ https://bikerz-heaven.web.app/
 - Recharts
 - React Query
 - Stripe
+- Axios

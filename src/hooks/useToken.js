@@ -9,7 +9,7 @@ const useToken = (user) => {
     const currentUser = { email: email }
     if (email) {
       axios
-        .put(`http://localhost:5000/users/${email}`, {
+        .put(`https://agile-citadel-57926.herokuapp.com/users/${email}`, {
           currentUser,
         })
         .then((res) => {

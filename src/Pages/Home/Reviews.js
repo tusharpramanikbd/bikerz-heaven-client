@@ -8,7 +8,8 @@ import Review from './Review'
 const Reviews = () => {
   const { data: reviews, isLoading } = useQuery(
     'reviews',
-    async () => await axios.get('http://localhost:5000/reviews')
+    async () =>
+      await axios.get('https://agile-citadel-57926.herokuapp.com/reviews')
   )
 
   if (isLoading) {

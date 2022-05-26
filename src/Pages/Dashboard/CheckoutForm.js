@@ -22,9 +22,12 @@ const CheckoutForm = ({ order }) => {
   const { data, isLoading } = useQuery(
     'paymentData',
     async () =>
-      await axios.post(`http://localhost:5000/create-payment-intent`, {
-        paymentData,
-      }),
+      await axios.post(
+        `https://agile-citadel-57926.herokuapp.com/create-payment-intent`,
+        {
+          paymentData,
+        }
+      ),
     {
       onSuccess: (data) => {
         if (data?.data?.clientSecret) {
@@ -92,7 +95,7 @@ const CheckoutForm = ({ order }) => {
       }
 
       axios
-        .patch(`http://localhost:5000/orders/${_id}`, {
+        .patch(`https://agile-citadel-57926.herokuapp.com/orders/${_id}`, {
           payment,
         })
         .then((res) => {

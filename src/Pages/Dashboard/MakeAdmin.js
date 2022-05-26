@@ -14,12 +14,13 @@ const MakeAdmin = () => {
     refetch,
   } = useQuery(
     'userList',
-    async () => await axios.get(`http://localhost:5000/users`)
+    async () =>
+      await axios.get(`https://agile-citadel-57926.herokuapp.com/users`)
   )
 
   const makeAdminHandler = (email) => {
     axios
-      .put(`http://localhost:5000/users/admin/${email}`)
+      .put(`https://agile-citadel-57926.herokuapp.com/users/admin/${email}`)
       .then((res) => {
         toast.success(`Admin is created`)
         refetch()

@@ -13,7 +13,8 @@ const ManageProducts = () => {
     refetch,
   } = useQuery(
     'allProducts',
-    async () => await axios.get(`http://localhost:5000/bikeparts`)
+    async () =>
+      await axios.get(`https://agile-citadel-57926.herokuapp.com/bikeparts`)
   )
 
   const showProductDeleteModal = (product) => {

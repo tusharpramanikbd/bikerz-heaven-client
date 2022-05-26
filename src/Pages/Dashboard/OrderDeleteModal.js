@@ -7,7 +7,7 @@ const OrderDeleteModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
 
   const handleOrderDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/orders/${id}`)
+      .delete(`https://agile-citadel-57926.herokuapp.com/orders/${id}`)
       .then((res) => {
         if (res.data.deletedCount > 0) {
           toast.success('Order is deleted')

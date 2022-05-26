@@ -17,7 +17,9 @@ const MyProfile = () => {
   const { isLoading } = useQuery(
     'profile',
     async () =>
-      await axios.get(`http://localhost:5000/userprofile?email=${user.email}`),
+      await axios.get(
+        `https://agile-citadel-57926.herokuapp.com/userprofile?email=${user.email}`
+      ),
     {
       onSuccess: (data) => {
         setEducation(data?.data?.education)
@@ -49,7 +51,7 @@ const MyProfile = () => {
     }
 
     axios
-      .put('http://localhost:5000/userprofile', {
+      .put('https://agile-citadel-57926.herokuapp.com/userprofile', {
         data,
       })
       .then((res) => {

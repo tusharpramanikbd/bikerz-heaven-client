@@ -8,16 +8,15 @@ import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import CheckoutForm from './CheckoutForm'
 
-const stripePromise = loadStripe(
-  'pk_test_51L1SdTLuXAZRAQ5Wc7bx0wqBsVk9hZQNQEkof9ghXjCbN2EwnTXDNp2lHVd9WpZVQo9D4uvkqkUswpdOvLKnO2U6000KaKlIxJ'
-)
+const stripePromise = loadStripe(process.env.REACT_APP_stripeKey)
 
 const Payment = () => {
   const { id } = useParams()
 
   const { data: order, isLoading } = useQuery(
     ['order', id],
-    async () => await axios.get(`http://localhost:5000/orders/${id}`)
+    async () =>
+      await axios.get(`https://agile-citadel-57926.herokuapp.com/orders/${id}`)
   )
 
   if (isLoading) {

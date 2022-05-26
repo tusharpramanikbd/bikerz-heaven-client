@@ -17,7 +17,8 @@ import TitleUnderline from '../Shared/TitleUnderline'
 const SalesChart = () => {
   const { data: salesData, isLoading } = useQuery(
     'salesData',
-    async () => await axios.get(`http://localhost:5000/sales`)
+    async () =>
+      await axios.get(`https://agile-citadel-57926.herokuapp.com/sales`)
   )
 
   const lastYear = new Date().getFullYear() - 1

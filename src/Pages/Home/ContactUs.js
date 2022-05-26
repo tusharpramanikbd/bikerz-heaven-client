@@ -17,7 +17,7 @@ const ContactUs = () => {
     const currentDate = format(new Date(), 'PP')
     data.date = currentDate
     axios
-      .post('http://localhost:5000/messages', {
+      .post('https://agile-citadel-57926.herokuapp.com/messages', {
         data,
       })
       .then((res) => {
@@ -80,12 +80,12 @@ const ContactUs = () => {
           </label>
         </div>
 
-        <div class='form-control'>
-          <label class='label'>
-            <span class='label-text'>Message</span>
+        <div className='form-control'>
+          <label className='label'>
+            <span className='label-text'>Message</span>
           </label>
           <textarea
-            class='textarea textarea-bordered h-24'
+            className='textarea textarea-bordered h-24'
             placeholder='Your Message'
             {...register('message', {
               required: {

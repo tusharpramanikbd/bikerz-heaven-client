@@ -14,7 +14,8 @@ const ManageAllOrders = () => {
     refetch,
   } = useQuery(
     'allOrders',
-    async () => await axios.get(`http://localhost:5000/orders`)
+    async () =>
+      await axios.get(`https://agile-citadel-57926.herokuapp.com/orders`)
   )
 
   const showOrderDeleteModal = (order) => {
@@ -26,7 +27,7 @@ const ManageAllOrders = () => {
       newPaymentStatus: 'shipped',
     }
     axios
-      .put(`http://localhost:5000/orders/${id}`, {
+      .put(`https://agile-citadel-57926.herokuapp.com/orders/${id}`, {
         data,
       })
       .then((res) => {

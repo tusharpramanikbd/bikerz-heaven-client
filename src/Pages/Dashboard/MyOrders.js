@@ -18,7 +18,9 @@ const MyOrders = () => {
   } = useQuery(
     'myOrders',
     async () =>
-      await axios.get(`http://localhost:5000/ordersbyemail?email=${user.email}`)
+      await axios.get(
+        `https://agile-citadel-57926.herokuapp.com/ordersbyemail?email=${user.email}`
+      )
   )
 
   const showOrderDeleteModal = (order) => {

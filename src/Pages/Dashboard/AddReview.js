@@ -23,7 +23,7 @@ const AddReview = () => {
     data.date = currentDate
 
     axios
-      .post('http://localhost:5000/reviews', {
+      .post('https://agile-citadel-57926.herokuapp.com/reviews', {
         data,
       })
       .then((res) => {
@@ -41,12 +41,12 @@ const AddReview = () => {
         </h2>
         <TitleUnderline />
         <form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
-          <div class='form-control'>
-            <label class='label'>
-              <span class='label-text'>Your review</span>
+          <div className='form-control'>
+            <label className='label'>
+              <span className='label-text'>Your review</span>
             </label>
             <textarea
-              class='textarea textarea-bordered h-24'
+              className='textarea textarea-bordered h-24'
               placeholder='Review'
               {...register('review', {
                 required: {
@@ -63,14 +63,16 @@ const AddReview = () => {
               )}
             </label>
           </div>
-          <div class='form-control w-full'>
-            <label class='label'>
-              <span class='label-text'>Your rating</span>
+          <div className='form-control w-full'>
+            <label className='label'>
+              <span className='label-text'>Your rating</span>
             </label>
-            <select class='select select-bordered' {...register('rating')}>
-              <option disabled selected>
-                1
-              </option>
+            <select
+              defaultValue={'1'}
+              className='select select-bordered'
+              {...register('rating')}
+            >
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>

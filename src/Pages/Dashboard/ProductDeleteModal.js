@@ -11,7 +11,7 @@ const ProductDeleteModal = ({
 
   const handleOrderDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/bikeparts/${id}`)
+      .delete(`https://agile-citadel-57926.herokuapp.com/bikeparts/${id}`)
       .then((res) => {
         if (res.data.deletedCount > 0) {
           toast.success('Product is deleted')

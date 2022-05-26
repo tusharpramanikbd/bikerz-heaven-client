@@ -14,7 +14,7 @@ const AddAProduct = () => {
 
   const onSubmit = async (data) => {
     axios
-      .post('http://localhost:5000/bikeparts', {
+      .post('https://agile-citadel-57926.herokuapp.com/bikeparts', {
         data,
       })
       .then((res) => {
@@ -150,12 +150,12 @@ const AddAProduct = () => {
             </label>
           </div>
 
-          <div class='form-control'>
-            <label class='label'>
-              <span class='label-text'>Description</span>
+          <div className='form-control'>
+            <label className='label'>
+              <span className='label-text'>Description</span>
             </label>
             <textarea
-              class='textarea textarea-bordered h-24'
+              className='textarea textarea-bordered h-24'
               placeholder='Product Description'
               {...register('description', {
                 required: {
