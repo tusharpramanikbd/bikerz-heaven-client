@@ -1,0 +1,50 @@
+[
+  {
+    "month": "Jan",
+    "sell": 100
+  },
+  {
+    "month": "Feb",
+    "sell": 120
+  },
+  {
+    "month": "Mar",
+    "sell": 150
+  },
+  {
+    "month": "Apr",
+    "sell": 190
+  },
+  {
+    "month": "May",
+    "sell": 230
+  },
+  {
+    "month": "Jun",
+    "sell": 270
+  },
+  {
+    "month": "Jul",
+    "sell": 310
+  },
+  {
+    "month": "Aug",
+    "sell": 350
+  },
+  {
+    "month": "Sep",
+    "sell": 400
+  },
+  {
+    "month": "Oct",
+    "sell": 440
+  },
+  {
+    "month": "Nov",
+    "sell": 510
+  },
+  {
+    "month": "Dec",
+    "sell": 560
+  }
+]
