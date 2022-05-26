@@ -33,12 +33,22 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
+
       <li>
         <NavLink
           to='/blogs'
           className={({ isActive }) => (isActive ? 'text-primary' : '')}
         >
           Blogs
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to='/myportfolio'
+          className={({ isActive }) => (isActive ? 'text-primary' : '')}
+        >
+          My Portfolio
         </NavLink>
       </li>
 

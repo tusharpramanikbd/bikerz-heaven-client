@@ -20,6 +20,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin'
 import RequireAdmin from './Pages/Login/RequireAdmin'
 import RequireUser from './Pages/Login/RequireUser'
 import Payment from './Pages/Dashboard/Payment'
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio'
 
 function App() {
   return (
@@ -104,6 +105,7 @@ function App() {
         </Route>
 
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/myportfolio' element={<MyPortfolio />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
