@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from './Banner'
 import BikeParts from './BikeParts'
 import BusinessSummary from './BusinessSummary'
+import ContactUs from './ContactUs'
 import Reviews from './Reviews'
 import SalesChart from './SalesChart'
 
@@ -13,6 +14,7 @@ const Home = () => {
       <BusinessSummary />
       <Reviews />
       <SalesChart />
+      <ContactUs />
     </div>
   )
 }
