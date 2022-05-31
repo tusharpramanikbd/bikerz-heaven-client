@@ -15,7 +15,7 @@ https://bikerz-heaven.web.app/
 - User can purchase bike parts in bulk quantity
 - User can add review and delete order.
 - Admin can create and delete product, delete user, make admin.
-- The whole website is responsive.
+- The whole website is responsive for desktop, tablet and mobile.
 
 ## Used Technologies
 
