@@ -8,10 +8,10 @@ const Banner = () => {
           <div className='bg-gray-900 w-full h-full bg-opacity-50'>
             <div className='container mx-auto w-full h-full flex justify-center items-center'>
               <div className='w-3/5 md:w-3/4 lg:w-1/2 text-center'>
-                <h2 className='text-indigo-400 text-2xl md:text-4xl font-bold capitalize'>
+                <h2 className='text-white text-2xl md:text-4xl font-bold capitalize'>
                   a motor bike parts inventory system
                 </h2>
-                <h2 className='text-white text-sm md:text-2xl font-bold capitalize mt-4'>
+                <h2 className='text-white text-sm md:text-xl capitalize mt-4'>
                   your one stop solution to find all the motor bike parts
                 </h2>
                 <a href='#bikeParts' className='btn btn-primary mt-8'>
@@ -35,10 +35,10 @@ const Banner = () => {
           <div className='bg-gray-900 w-full h-full bg-opacity-50'>
             <div className='container mx-auto w-full h-full flex justify-center items-center'>
               <div className='w-3/5 md:w-3/4 lg:w-1/2 text-center'>
-                <h2 className='text-indigo-400 text-2xl md:text-4xl font-bold capitalize'>
+                <h2 className='text-white text-2xl md:text-4xl font-bold capitalize'>
                   a motor bike parts inventory system
                 </h2>
-                <h2 className='text-white text-sm md:text-2xl font-bold capitalize mt-4'>
+                <h2 className='text-white text-sm md:text-xl font-bold capitalize mt-4'>
                   your one stop solution to find all the motor bike parts
                 </h2>
                 <a href='#bikeParts' className='btn btn-primary mt-8'>
@@ -62,10 +62,10 @@ const Banner = () => {
           <div className='bg-gray-900 w-full h-full bg-opacity-50'>
             <div className='container mx-auto w-full h-full flex justify-center items-center'>
               <div className='w-3/5 md:w-3/4 lg:w-1/2 text-center'>
-                <h2 className='text-indigo-400 text-2xl md:text-4xl font-bold capitalize'>
+                <h2 className='text-white text-2xl md:text-4xl font-bold capitalize'>
                   a motor bike parts inventory system
                 </h2>
-                <h2 className='text-white text-sm md:text-2xl font-bold capitalize mt-4'>
+                <h2 className='text-white text-sm md:text-xl font-bold capitalize mt-4'>
                   your one stop solution to find all the motor bike parts
                 </h2>
                 <a href='#bikeParts' className='btn btn-primary mt-8'>

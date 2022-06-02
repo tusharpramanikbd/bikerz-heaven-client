@@ -32,7 +32,7 @@ const SalesChart = () => {
       <h2 className='text-center font-bold text-3xl uppercase'>Our Sales</h2>
       <TitleUnderline />
       <div>
-        <h2 className='text-center chart-label mt-4 text-lg'>
+        <h2 className='text-center chart-label mt-8 text-lg'>
           Yearly Sales of {lastYear}
         </h2>
         <ResponsiveContainer width='100%' height={400}>

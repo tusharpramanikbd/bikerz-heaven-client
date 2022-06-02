@@ -20,7 +20,7 @@ const BikeParts = () => {
     <div id='bikeParts' className='container mx-auto mt-8'>
       <h2 className='text-center font-bold text-3xl uppercase'>Bike Parts</h2>
       <TitleUnderline />
-      <div className='mt-4 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3'>
+      <div className='mt-8 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:w-4/5 mx-auto'>
         {bikeParts.data.map((bikePart) => (
           <BikePart key={bikePart._id} bikePart={bikePart} />
         ))}

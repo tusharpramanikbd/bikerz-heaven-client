@@ -21,7 +21,7 @@ const BikePart = ({ bikePart }) => {
   return (
     <div className='w-full p-4 rounded-lg drop-shadow-lg hover:drop-shadow-xl bg-white mb-4 md:mb-0 flex flex-col gap-y-4'>
       <div>
-        <img className='w-full block h-[300px]' src={image} alt={name} />
+        <img className='w-full block h-[220px]' src={image} alt={name} />
         <h2 className='mt-2'>
           <span className='font-bold'>Name:</span> {name}
         </h2>
@@ -34,9 +34,10 @@ const BikePart = ({ bikePart }) => {
           {availableQuantity}
         </h2>
         <h2 className='mt-2'>
-          <span className='font-bold'>Price:</span> ${price}
+          <span className='font-bold'>Price:</span>{' '}
+          <span className='text-orange-500'> ${price}</span>
         </h2>
-        <h2 className='mt-2'>
+        <h2 className='mt-2 text-sm'>
           <span className='font-bold'>Description:</span> {description}
         </h2>
       </div>

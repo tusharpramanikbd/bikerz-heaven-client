@@ -20,7 +20,7 @@ const Reviews = () => {
     <div className='container mx-auto mt-8'>
       <h2 className='text-center font-bold text-3xl uppercase'>Our Reviews</h2>
       <TitleUnderline />
-      <div className='mt-4 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3'>
+      <div className='mt-8 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3'>
         {reviews.data.map((review) => (
           <Review key={review._id} review={review} />
         ))}
